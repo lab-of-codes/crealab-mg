@@ -23,144 +23,14 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* * =================================================================
-         * PALETA DE CORES CENTRALIZADA COM VARIÁVEIS CSS
-         * =================================================================
-         * Adicione novas cores aqui. Para cada cor principal, crie uma 
-         * variação '-bg' mais clara para fundos.
-         */
         :root {
-            /* Paleta Principal (Azuis) */
-            --theme-primary-dark: #023059;
-            --theme-primary-dark-bg: #E6EAF0;
-            --theme-primary-main: #204482;
-            --theme-primary-main-bg: #E8EBF2;
-            --theme-primary-bright: #2361D8;
-            --theme-primary-bright-bg: #E9EFFC;
-            --theme-primary-alt: #00509b;
-            --theme-primary-alt-bg: #EFF8FF;
-
-            /* Paleta Secundária (Vermelhos/Laranjas) */
-            --theme-secondary-orange: #E14D27;
-            --theme-secondary-orange-bg: #FDF0EC;
-            --theme-secondary-pink: #E4234F;
-            --theme-secondary-pink-bg: #FEF5F7;
-
-            /* Paleta de Destaque (Amarelos/Dourados) */
-            --theme-accent-gold: #ba9705;
-            --theme-accent-gold-bg: #F8F5E6;
-            --theme-accent-gold-dark: #bf9004;
-            --theme-accent-gold-dark-bg: #F9F4E6;
-
-            /* Paleta Neutra (Cinzas) */
-            --theme-neutral-dark: #231f20;
-            --theme-neutral-dark-bg: #E9E8E8;
-            --theme-neutral-medium: #8e8e93;
-            --theme-neutral-medium-bg: #F4F4F5;
-
-            /* Paleta Legada (para compatibilidade) */
-            --crea-blue: var(--theme-primary-main);
-            --crea-blue-light: #3e67b2;
-            /* Variação customizada */
-            --theme-pink: var(--theme-secondary-pink);
-            --theme-pink-bg: var(--theme-secondary-pink-bg);
-            --theme-beige-bg: #FFF7ED;
-            --theme-orange-text: #D97706;
-            --theme-orange-border: #FDBA74;
-        }
-
-        /* Classes de Utilitário para a nova paleta */
-        .bg-theme-primary-dark-light {
-            background-color: var(--theme-primary-dark-bg);
-        }
-
-        .text-theme-primary-dark {
-            color: var(--theme-primary-dark);
-        }
-
-        .text-theme-primary-main {
-            color: var(--theme-primary-main);
-        }
-
-        .bg-theme-secondary-orange-light {
-            background-color: var(--theme-secondary-orange-bg);
-        }
-
-        .text-theme-secondary-orange {
-            color: var(--theme-primary-bright);
-        }
-
-        .bg-theme-accent-gold-light {
-            background-color: var(--theme-accent-gold-bg);
-        }
-
-        .text-theme-accent-gold {
-            color: var(--theme-accent-gold);
-        }
-
-        /* Classes de Utilitário para o Tema Rosa (Legado) */
-        .bg-theme-pink-light {
-            background-color: var(--theme-pink-bg);
-        }
-
-        .text-crea-blue-bright {
-            color: var(--theme-pink);
-        }
-
-        .border-theme-blue {
-            border-color: var(--theme-pink);
-        }
-
-        .border-theme-blue {
-            border-color: var(--theme-primary-bright);
-        }
-
-        .hover\:bg-theme-pink:hover {
-            background-color: var(--theme-pink);
-        }
-
-        .hover\:text-white:hover {
-            color: white;
-        }
-
-        /* Classes de Utilitário para o Tema Bege/Laranja (Legado) */
-        .bg-theme-beige {
-            background-color: var(--theme-primary-alt-bg);
-        }
-
-        .text-theme-orange {
-            color: var(--theme-orange-text);
-        }
-
-        .text-theme-secundary-orange {
-            color: var(--theme-orange-text);
-        }
-
-
-        .border-theme-orange {
-            border-color: var(--theme-primary-alt);
-        }
-
-        .hover\:bg-theme-orange:hover {
-            background-color: var(--theme-primary-bright);
-        }
-
-        .hover\:border-theme-orange-dark:hover {
-            border-color: var(--theme-primary-alt);
-        }
-
-        /* Cor personalizada do projeto (Azul - Legado) */
-        .text-crea-blue {
-            color: var(--crea-blue);
+        --theme-primary-bright: #2361D8;
         }
 
         .text-crea-blue-bright {
             color: var(--theme-primary-bright);
         }
 
-        .hover\:text-crea-blue-light:hover {
-            color: var(--crea-blue-light);
-        }
     </style>
 </head>
 
@@ -191,7 +61,7 @@
                             class="hover:text-purple-300 transition-colors duration-300">Capacitação</a></li>
                     <li><a href="banco-de-talentos.html"
                             class="hover:text-purple-300 transition-colors duration-300">Banco de Talentos</a></li>
-                    <li><a href="clube-de-vantagens.html"
+                     <li><a href="clube-de-vantagens.html"
                             class="hover:text-purple-300 transition-colors duration-300">Clube de vantagens</a></li>
                     <!-- <li><a href="#opcao5" class="hover:text-purple-300 transition-colors duration-300">Opção 5</a></li>
                     <li><a href="#opcao6" class="hover:text-purple-300 transition-colors duration-300">Opção 6</a></li>
@@ -225,7 +95,7 @@
     <!-- Seção do Banner -->
     <section class="w-full bg-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <img src="img/capas/banco-de-talentos.png" alt="Banner Principal" class="w-full h-auto object-cover">
+            <img src="img/capas/clube-de-vantages.png" alt="Banner Principal" class="w-full h-auto object-cover">
         </div>
     </section>
 
@@ -238,33 +108,28 @@
 
                 <!-- Coluna da Imagem -->
                 <div class="md:w-2/5">
-                    <img src="img/gerais/banco-de-talentos-como-funciona-elemento-lateral.png"
+                    <img src="img/gerais/clube-de-vantagens-elemento-lateral.png"
                         alt="Ilustração de Exemplo" class="w-full h-auto object-cover">
                 </div>
 
                 <!-- Coluna do Texto -->
                 <div class="md:w-3/5">
                     <h2 class="text-3xl md:text-4xl font-bold text-crea-blue mb-6">
-                        Como funciona?
+                        Sobre
                     </h2>
                     <p class="text-theme-primary-main leading-relaxed mb-2">
-                        O CREA agora conta com um programa exclusivo de <strong
-                            class="text-crea-blue-bright">divulgação de vagas e banco de talentos</strong> voltado
-                        para profissionais e estudantes das áreas da engenharia, agronomia e geociências.
+                        O Clube de Vantagens foi criado para oferecer aos profissionais registrados<strong
+                            class="text-crea-blue-bright">descontos especiais</strong>  nas principais lojas 
+                            do Brasil, em diversas categorias como tecnologia, educação, viagens, moda, entre outras.
                     </p>
                     <p class="text-theme-primary-main leading-relaxed mb-2">
-                        Aqui, você pode encontrar oportunidades alinhadas à sua formação e cadastrar seu currículo para
-                        que empresas parceiras tenham acesso ao seu perfil.
+                        Além de economizar nas suas compras, você ainda acumula cashback que pode ser utilizado para 
+                        <strong class="text-crea-blue-bright">abater valores de anuidade e taxas do CREA-SC.</strong>
                     </p>
                     <p class="text-theme-primary-main leading-relaxed mb-2">
-                        Acesse, cadastre-se e fique por dentro das oportunidades que movimentam o setor!
+                        Aproveite os benefícios e transforme suas compras em vantagens para a sua carreira!
                     </p>
-                    <p class="mt-5">
-                        <a href="https://bancodetalentos.org/" target="_blank"
-                            class="mt-auto text-center w-full border-2 text-crea-blue-bright text-crea-blue-bright font-bold py-2 px-4 rounded-full hover:bg-theme-orange hover:text-white transition-colors duration-300">
-                            Acessar oportunidades!
-                        </a>
-                        </p>
+                   
                 </div>
 
 
@@ -274,50 +139,6 @@
         </div>
     </section>
 
-    
-
-    <!-- Seção: informações sobre acessos-->
-    <section id="perfis" class="w-full bg-white pb-16 sm:pb-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-
-            <div class="bg-theme-beige rounded-2xl p-8 flex flex-col items-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-theme-secondary-orange mb-4">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.78552 9.5 12.7855 14l9-4.5-9-4.5-8.99998 4.5Zm0 0V17m3-6v6.2222c0 .3483 2 1.7778 5.99998 1.7778 4 0 6-1.3738 6-1.7778V11"/>                </svg>
-                <h3 class="text-2xl font-bold text-theme-secondary-orange">Estudante</h3>
-                <p class="text-base text-theme-primary-main mt-2 mb-6 h-16">Encontre vagas de estágio para começar sua carreira.</p>
-                <a href="https://bancodetalentos.org/oportunidades/?tp%5B%5D=estagio" class="mt-auto border border-theme-orange text-theme-secondary-orange font-semibold rounded-full py-2 px-10 transition-colors duration-300 hover:bg-theme-orange hover:text-white hover:border-theme-orange-dark">
-                    Acessar
-                </a>
-            </div>
-
-            <div class="bg-theme-beige rounded-2xl p-8 flex flex-col items-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-theme-secondary-orange mb-4">
-                      <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                </svg>
-                <h3 class="text-2xl font-bold text-theme-secondary-orange">Profissional</h3>
-                <p class="text-base text-theme-primary-main mt-2 mb-6 h-16">De o próximo passo em sua jornada.</p>
-                <a href="https://bancodetalentos.org/n/login-minas" class="mt-auto border border-theme-orange text-theme-secondary-orange font-semibold rounded-full py-2 px-10 transition-colors duration-300 hover:bg-theme-orange hover:text-white hover:border-theme-orange-dark">
-                    Acessar
-                </a>
-            </div>
-
-            <div class="bg-theme-beige rounded-2xl p-8 flex flex-col items-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-theme-secondary-orange mb-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                </svg>
-                <h3 class="text-2xl font-bold text-theme-secondary-orange">Recrutador</h3>
-                <p class="text-base text-theme-primary-main mt-2 mb-6 h-16">Encontre o talento que sua empresa procura.</p>
-                <a href="https://bancodetalentos.org/r/login" class="mt-auto border border-theme-orange text-theme-secondary-orange font-semibold rounded-full py-2 px-10 transition-colors duration-300 hover:bg-theme-orange hover:text-white hover:border-theme-orange-dark">
-                    Acessar
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-   
 
     <!-- Seção: Outros Projetos da Inovação -->
     <section id="outros-projetos" class="w-full bg-white pb-16 sm:pb-24">
