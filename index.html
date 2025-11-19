@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea-Lab Crea Minas</title>
+    <link rel="shortcut icon" href="img/faviconV2.png" type="image/png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilo para usar a fonte Inter e previnir scroll horizontal */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        /* Animação de pulso para a seta */
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* --- Estilos do Banner Vertical --- */
+        .faixa-rosa { --tw-bg-opacity: 1; background-color: rgba(230, 23, 93, var(--tw-bg-opacity)); }
+        .faixa-laranja { --tw-bg-opacity: 1; background-color: rgba(230, 69, 16, var(--tw-bg-opacity)); }
+        .faixa-azul { --tw-bg-opacity: 1; background-color: rgba(16, 107, 230, var(--tw-bg-opacity)); }
+        .faixa-verde { --tw-bg-opacity: 1; background-color: rgba(16, 163, 127, var(--tw-bg-opacity)); }
+        .faixa-roxa { --tw-bg-opacity: 1; background-color: rgba(138, 16, 230, var(--tw-bg-opacity)); }
+
+        /* Transições suaves para a troca de cor e opacidade no banner */
+        #faixa-lateral, #conteudo-texto {
+            transition: all 0.7s ease-in-out;
+        }
+        #imagem-fundo {
+            transition: background-image 0.7s ease-in-out;
+        }
+
+        /* Efeito de fade-in/out no texto do banner */
+        .texto-fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .texto-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para o bullet de navegação ativo do banner */
+        .bullet-ativo {
+            background-color: white;
+            transform: scale(1.5);
+        }
+
+        /* --- Efeito de Glow Neon para o Logo Principal --- */
+        @keyframes neon-glow {
+            0%, 100% {
+                /* Brilho com predominância do roxo */
+                filter: drop-shadow(0 0 1px rgba(59, 0, 20, 0.6)) 
+                        drop-shadow(0 0 2px rgba(83, 0, 28, 0.4)) 
+                        drop-shadow(0 0 3px rgba(24, 0, 43, 0.6)) 
+                        drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+            }
+            50% {
+                /* Brilho com predominância do rosa */
+                filter: drop-shadow(0 0 5px rgba(138, 16, 230, 0.6)) 
+                        drop-shadow(0 0 6px rgba(138, 16, 230, 0.4)) 
+                        drop-shadow(0 0 7px rgba(138, 15, 56, 0.6)) 
+                        drop-shadow(0 0 8px rgba(88, 7, 34, 0.4));
+            }
+        }
+
+        .logo-glow {
+            animation: neon-glow 5s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white">
+
+    <!-- Seção 1: Capa Principal -->
+    <section id="home" class="h-screen w-full flex flex-col relative overflow-hidden">
+        
+        <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-zinc-900 via-transparent to-zinc-900 z-0"></div>
+
+        <header class="w-full p-6 md:px-12 md:py-8 flex justify-between items-center absolute top-0 z-20">
+            <div class="text-2xl font-bold tracking-wider"><img src="img/componentes/logo-superior-crea-lab-mg.png" width="200rem"></div>
+            <nav class="hidden md:flex">
+                <ul class="flex items-center space-x-8 text-sm font-medium">
+                    <li><a href="o-crea-lab.html" class="hover:text-purple-300 transition-colors duration-300">O CreaLab</a></li>
+                    <li><a href="coworkings.html" class="hover:text-purple-300 transition-colors duration-300">Coworkings</a></li>
+                    <li><a href="capacitacao.html" class="hover:text-purple-300 transition-colors duration-300">Capacitação</a></li>
+                    <li><a href="banco-de-talentos.html" class="hover:text-purple-300 transition-colors duration-300">Banco de Talentos</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden z-30">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </header>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-zinc-900/95 backdrop-blur-sm z-20 flex-col items-center justify-center space-y-8 text-2xl hidden">
+            <a href="o-crea-lab.html" class="mobile-menu-link">O CreaLab</a>
+            <a href="coworkings.html" class="mobile-menu-link">Coworkings</a>
+            <a href="capacitacao.html" class="mobile-menu-link">Capacitação</a>
+            <a href="banco-de-talentos.html" class="mobile-menu-link">Banco de Talentos</a>
+        </div>
+
+        <main class="flex-grow flex items-center justify-center z-10">
+            <div class="text-center select-none">
+                <img src="img/componentes/logo-principal-crea-lab-mg.png" width="700rem" class="logo-glow">
+            </div>
+        </main>
+
+        <footer class="w-full flex justify-center p-8 absolute bottom-0 z-10">
+            <a href="#video-section" class="flex flex-col items-center space-y-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 animate-bounce">
+                <span>Saiba mais</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+        </footer>
+    </section>
+
+    <!-- Seção 2: Placeholder do Vídeo -->
+    <section id="video-section" class="h-screen w-full bg-gradient-to-br from-[#2361D8] to-[#E4234F] flex items-center justify-center p-4 sm:p-8">
+        <div class="w-full max-w-5xl aspect-video bg-black rounded-xl shadow-2xl flex items-center justify-center relative">
+            <div class="absolute top-8 left-8 sm:top-12 sm:left-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white leading-none">
+                    Sobre o<br>Crealab Minas
+                </h2>
+                <a href="#" class="inline-block mt-4 bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
+                    Saiba mais &rarr;
+                </a>
+            </div>
+            <div class="text-center text-white">
+                <svg class="w-20 h-20 sm:w-24 sm:h-24 text-white/80 hover:text-white transition-colors cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Banner Vertical com Rolagem -->
+    <section id="banner-section" class="relative bg-gray-900">
+        <div id="container-principal" class="h-screen w-full sticky top-0">
+            <div id="imagem-fundo" class="absolute inset-0 w-full h-full z-0 bg-cover bg-center"></div>
+            <div id="faixa-lateral" class="absolute top-0 bottom-0 left-0 md:left-12 w-full md:w-5/12 lg:w-4/12 h-full z-10 flex items-center justify-center p-8 pb-20 md:p-12 text-white shadow-2xl overflow-hidden bg-opacity-[.95] md:bg-opacity-100">
+                <div class="absolute left-2 top-0 bottom-0 flex items-center z-0 pointer-events-none" aria-hidden="true">
+                    <p class="text-white/25 whitespace-nowrap text-sm" style="writing-mode: vertical-lr;">CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas</p>
+                </div>
+                <div class="absolute right-2 top-0 bottom-0 flex items-center z-0 pointer-events-none" aria-hidden="true">
+                    <p class="text-white/25 whitespace-nowrap text-sm" style="writing-mode: vertical-lr; transform: rotate(180deg);">CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas</p>
+                </div>
+                <div id="conteudo-texto" class="relative z-10 transition-all duration-500 ease-in-out text-center md:text-left">
+                    <h2 id="titulo-secao" class="text-3xl lg:text-4xl font-black uppercase mb-4"></h2>
+                    <a href="#" id="saiba-mais-btn" class="mb-4 inline-block bg-white rounded-full px-5 py-1.5 font-bold transition-transform hover:scale-105 text-sm cursor-pointer">
+                        Saiba mais →
+                    </a>
+                    <p id="texto-secao" class="text-base lg:text-lg"></p>
+                </div>
+            </div>
+        </div>
+        <nav id="nav-bullets" class="flex md:flex-col justify-center items-center fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:top-1/2 md:-translate-y-1/2 md:-translate-x-0 md:bottom-auto z-30 space-x-4 md:space-x-0 md:space-y-4 opacity-0 pointer-events-none transition-opacity duration-500"></nav>
+        <div id="secoes-scroll" class="relative z-20 pointer-events-none">
+            <section id="secao-1" class="h-screen"></section>
+            <section id="secao-2" class="h-screen"></section>
+            <section id="secao-3" class="h-screen"></section>
+            <section id="secao-4" class="h-screen"></section>
+            <section id="secao-5" class="h-screen"></section>
+        </div>
+    </section>
+
+    <!-- Rodapé Principal -->
+    <footer class="bg-gray-50 text-indigo-900 border-t">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start">
+
+                <!-- Lado Esquerdo: Logo e Social -->
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <!-- Placeholder do Logo -->
+                    <div class="text-4xl font-bold text-crea-blue"><a href="index.html"><img
+                            src="img/componentes/logo-superior-crea-lab-mg-azul-padrao.png" width="200rem"></a></div>
+                    <hr class="my-4 border-t-2 border-indigo-200 w-32">
+                    <!-- Ícones de Redes Sociais -->
+                    <div class="flex space-x-4 text-crea-blue">
+                        <a href="https://www.facebook.com/people/Crea-MG/100063772080022/#" class="hover:text-crea-blue-light transition-colors"  target="_blank"><svg class="w-6 h-6"
+                                fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                        <a href="https://x.com/crea_minas/" class="hover:text-crea-blue-light transition-colors" target="_blank"><svg class="w-6 h-6"
+                                fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg></a>
+                        <a href="https://www.instagram.com/crea_minas/" class="hover:text-crea-blue-light transition-colors" target="_blank"><svg class="w-6 h-6"
+                                fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.862 1.726-3.862 3.862s1.726 3.862 3.862 3.862 3.862-1.726 3.862-3.862S14.136 8.118 12 8.118zM12 14.354c-1.29 0-2.338-1.048-2.338-2.338s1.048-2.338 2.338-2.338 2.338 1.048 2.338 2.338-1.048 2.338-2.338 2.338zM16.838 7.846a1.24 1.24 0 100-2.48 1.24 1.24 0 000 2.48z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                        <a href="https://br.linkedin.com/company/creamgoficial" class="hover:text-crea-blue-light transition-colors" target="_blank"><svg class="w-6 h-6"
+                                fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg></a>
+                        <a href="https://www.youtube.com/c/CreaMinas/videos" class="hover:text-crea-blue-light transition-colors" target="_blank"><svg class="w-6 h-6"
+                                fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 0 1-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 0 1 1.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418zM9.94 15.58V8.42L15.453 12 9.94 15.58z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                  <!-- Lado Direito: Contato -->
+                <div class="mt-10 md:mt-0 text-gray-700">
+                    <h3 class="text-lg font-bold text-crea-blue">Crea-MG</h3>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Av. Álvares Cabral, 1600 - Santo Agostinho</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <span>0800 031 2732</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>atendimento@crea-mg.org.br</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#home" id="to-top-button" class="fixed bottom-5 right-5 z-50 p-3 bg-indigo-100 rounded-full text-indigo-800 shadow-lg hover:bg-indigo-200 transition-all duration-300 hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </a>
+
+    <script>
+        // Script para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        };
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        document.body.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Script para o Banner Vertical e Botão Voltar ao Topo
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Configuração do Banner ---
+            const dadosDasSecoes = [
+                {
+                    id: 'secao-1',
+                    titulo: "ESPAÇOS DE COWORKINGS",
+                    texto: "Visa criar uma infraestrutura colaborativa e inovadora, por meio de uma rede de coworkings, com o objetivo de modernizar os processos institucionais e integrar de forma mais eficiente as inspetorias do Crea-MG.",
+                    corClasse: 'faixa-rosa',
+                    corHex: '#E6175D',
+                    imagemUrl: 'img/banner/coworking-banner1.png',
+                    link: '#'
+                },
+                {
+                    id: 'secao-3',
+                    titulo: "PLATAFORMA DE CAPACITAÇÃO",
+                    texto: "A plataforma de capacitação do Crea-MG oferecerá cursos online, gratuitos e de curta duração em diversas áreas do conhecimento, promovendo o desenvolvimento profissional, a valorização das profissões do Sistema Confea/Crea e o fortalecimento da atuação ética e fiscalizatória.",
+                    corClasse: 'faixa-azul',
+                    corHex: '#106BE6',
+                    imagemUrl: 'img/banner/plataforma-capacitacao-banner1.png',
+                    link: '#'
+                },
+                {
+                    id: 'secao-4',
+                    titulo: "BANCO DE TALENTOS",
+                    texto: "É uma plataforma que conecta profissionais e estudantes das áreas de Engenharia, Agronomia e Geociências a oportunidades de trabalho, estágios e desenvolvimento profissional.",
+                    corClasse: 'faixa-verde',
+                    corHex: '#10a37f',
+                    imagemUrl: 'img/banner/banco-de-talentos-banner1.png',
+                    link: '#'
+                }
+            ];
+
+            const faixaLateral = document.getElementById('faixa-lateral');
+            const conteudoTexto = document.getElementById('conteudo-texto');
+            const tituloSecao = document.getElementById('titulo-secao');
+            const textoSecao = document.getElementById('texto-secao');
+            const imagemFundo = document.getElementById('imagem-fundo');
+            const navBullets = document.getElementById('nav-bullets');
+            const secoesScroll = document.querySelectorAll('#secoes-scroll section');
+            const saibaMaisBtn = document.getElementById('saiba-mais-btn');
+
+            if(faixaLateral) { // Verifica se os elementos do banner existem
+                dadosDasSecoes.forEach((secao, index) => {
+                    const bullet = document.createElement('a');
+                    bullet.href = `#${secao.id}`;
+                    bullet.dataset.index = index;
+                    bullet.classList.add('w-3', 'h-3', 'rounded-full', 'border-2', 'border-white', 'block', 'transition-all', 'duration-300');
+                    
+                    bullet.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.getElementById(secao.id).scrollIntoView({ behavior: 'smooth' });
+                    });
+
+                    navBullets.appendChild(bullet);
+                });
+                const bullets = navBullets.querySelectorAll('a');
+
+                let ultimaCorClasse = '';
+                let indiceAtivo = -1; 
+
+                function atualizarConteudo(index) {
+                    if (index === indiceAtivo) return;
+                    indiceAtivo = index;
+
+                    const dados = dadosDasSecoes[index];
+                    if (!dados) return;
+
+                    conteudoTexto.classList.add('texto-fade-out');
+                    conteudoTexto.classList.remove('texto-fade-in');
+
+                    setTimeout(() => {
+                        tituloSecao.textContent = dados.titulo;
+                        textoSecao.textContent = dados.texto;
+
+                        if (ultimaCorClasse) faixaLateral.classList.remove(ultimaCorClasse);
+                        faixaLateral.classList.add(dados.corClasse);
+                        ultimaCorClasse = dados.corClasse;
+
+                        saibaMaisBtn.style.color = dados.corHex;
+                        saibaMaisBtn.href = dados.link;
+
+                        imagemFundo.style.backgroundImage = `url('${dados.imagemUrl}')`;
+                        
+                        conteudoTexto.classList.remove('texto-fade-out');
+                        conteudoTexto.classList.add('texto-fade-in');
+                    }, 350);
+
+                    bullets.forEach((b, i) => {
+                        b.classList.toggle('bullet-ativo', i === index);
+                    });
+                }
+
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-25% 0px -25% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const index = dadosDasSecoes.findIndex(s => s.id === entry.target.id);
+                            if(index !== -1) atualizarConteudo(index);
+                        }
+                    });
+                }, observerOptions);
+
+                secoesScroll.forEach(secao => observer.observe(secao));
+
+                if(dadosDasSecoes.length > 0) atualizarConteudo(0);
+            }
+
+            // --- Script para o botão Voltar ao Topo ---
+            const toTopButton = document.getElementById('to-top-button');
+
+            window.addEventListener('scroll', () => {
+                if (toTopButton) {
+                    if (window.scrollY > 400) { // Mostra o botão após rolar 400px
+                        toTopButton.classList.remove('hidden');
+                    } else {
+                        toTopButton.classList.add('hidden');
+                    }
+                }
+            });
+
+            // --- Script para visibilidade das Bullets do Banner ---
+            const bannerSection = document.getElementById('banner-section');
+            const navBulletsElement = document.getElementById('nav-bullets');
+
+            if (bannerSection && navBulletsElement) {
+                const bulletObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navBulletsElement.classList.remove('opacity-0', 'pointer-events-none');
+                        } else {
+                            navBulletsElement.classList.add('opacity-0', 'pointer-events-none');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                bulletObserver.observe(bannerSection);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

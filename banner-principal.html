@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Vertical com Rolagem Interativa</title>
+    
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos personalizados e classes de cores */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Previne scroll horizontal */
+        }
+
+        /* Garante que o scroll seja suave ao clicar nos bullets */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* AJUSTE: Classes de cores atualizadas para suportar a opacidade do Tailwind */
+        .faixa-rosa { --tw-bg-opacity: 1; background-color: rgba(230, 23, 93, var(--tw-bg-opacity)); }
+        .faixa-laranja { --tw-bg-opacity: 1; background-color: rgba(230, 69, 16, var(--tw-bg-opacity)); }
+        .faixa-azul { --tw-bg-opacity: 1; background-color: rgba(16, 107, 230, var(--tw-bg-opacity)); }
+        .faixa-verde { --tw-bg-opacity: 1; background-color: rgba(16, 163, 127, var(--tw-bg-opacity)); }
+        .faixa-roxa { --tw-bg-opacity: 1; background-color: rgba(138, 16, 230, var(--tw-bg-opacity)); }
+
+
+        /* Transições suaves para a troca de cor e opacidade */
+        #faixa-lateral, #conteudo-texto {
+            transition: all 0.7s ease-in-out;
+        }
+        /* A transição da imagem de fundo é separada para evitar "piscar" */
+        #imagem-fundo {
+            transition: background-image 0.7s ease-in-out;
+        }
+
+        /* Efeito de fade-in/out no texto ao trocar de seção */
+        .texto-fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .texto-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para o bullet de navegação ativo */
+        .bullet-ativo {
+            background-color: white;
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <main class="relative">
+        
+        <!-- Container Fixo (Sticky) que segura a imagem e a faixa de texto -->
+        <div id="container-principal" class="h-screen w-full sticky top-0">
+            
+            <!-- Imagem de Fundo (ocupa o espaço todo) -->
+            <div id="imagem-fundo" class="absolute inset-0 w-full h-full z-0 bg-cover bg-center">
+                <!-- A imagem de fundo será definida via JS -->
+            </div>
+
+            <!-- Faixa Lateral Colorida com Conteúdo -->
+            <!-- AJUSTE: Adicionada classe de opacidade para mobile (bg-opacity-[.95]) e removida para desktop (md:bg-opacity-100) -->
+            <div id="faixa-lateral" class="absolute top-0 bottom-0 left-0 md:left-12 w-full md:w-5/12 lg:w-4/12 h-full z-10 flex items-center justify-center p-8 pb-20 md:p-12 text-white shadow-2xl overflow-hidden bg-opacity-[.95] md:bg-opacity-100">
+                
+                <!-- Textos decorativos não interferem mais com o mouse -->
+                <div class="absolute left-2 top-0 bottom-0 flex items-center z-0 pointer-events-none" aria-hidden="true">
+                    <p class="text-white/25 whitespace-nowrap text-sm" style="writing-mode: vertical-lr;">CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas</p>
+                </div>
+                <div class="absolute right-2 top-0 bottom-0 flex items-center z-0 pointer-events-none" aria-hidden="true">
+                    <p class="text-white/25 whitespace-nowrap text-sm" style="writing-mode: vertical-lr; transform: rotate(180deg);">CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas CreaLab Minas</p>
+                </div>
+                
+                <!-- Conteúdo principal da faixa -->
+                <div id="conteudo-texto" class="relative z-10 transition-all duration-500 ease-in-out text-center md:text-left">
+                    <h2 id="titulo-secao" class="text-3xl lg:text-4xl font-black uppercase mb-4"></h2>
+                    <a href="#" id="saiba-mais-btn" class="mb-4 inline-block bg-white rounded-full px-5 py-1.5 font-bold transition-transform hover:scale-105 text-sm cursor-pointer">
+                        Saiba mais →
+                    </a>
+                    <p id="texto-secao" class="text-base lg:text-lg"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação por Bullets (visível em todas as telas) -->
+        <nav id="nav-bullets" class="flex md:flex-col justify-center items-center fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:top-1/2 md:-translate-y-1/2 md:-translate-x-0 md:bottom-auto z-30 space-x-4 md:space-x-0 md:space-y-4">
+            <!-- Os bullets serão gerados pelo JavaScript -->
+        </nav>
+
+        <!-- Seções de Scroll (elementos "gatilho") -->
+        <!-- CORREÇÃO: Adicionado 'pointer-events-none' para que esta camada invisível não bloqueie cliques no conteúdo abaixo dela -->
+        <div id="secoes-scroll" class="relative z-20 pointer-events-none">
+            <section id="secao-1" class="h-screen"></section>
+            <section id="secao-2" class="h-screen"></section>
+            <section id="secao-3" class="h-screen"></section>
+            <section id="secao-4" class="h-screen"></section>
+            <section id="secao-5" class="h-screen"></section>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- CONFIGURAÇÃO DO CONTEÚDO ---
+            const dadosDasSecoes = [
+                {
+                    id: 'secao-1',
+                    titulo: "ESPAÇOS DE COWORKINGS",
+                    texto: "Visa criar uma infraestrutura inclusiva e acessível para a inovação, conectando hubs regionais de CT&I a ambientes de parceiros.",
+                    corClasse: 'faixa-rosa',
+                    corHex: '#E6175D',
+                    imagemUrl: 'img/banner/ex1.jpg',
+                    link: '#'
+                },
+                {
+                    id: 'secao-2',
+                    titulo: "FERRAMENTAS DIGITAIS",
+                    texto: "Visa estabelecer pontes entre o CEEARA e MPEs, integrando o uso de softwares livres, sistemas de automação e processos digitais nos negócios.",
+                    corClasse: 'faixa-laranja',
+                    corHex: '#E64510',
+                    imagemUrl: 'img/banner/ex2.jpg',
+                    link: '#'
+                },
+                {
+                    id: 'secao-3',
+                    titulo: "PLATAFORMA DE CAPACITAÇÃO",
+                    texto: "A plataforma de capacitação visa conectar ciência, inovação e mercado através de cursos técnicos, mentorias, oficinas e eventos.",
+                    corClasse: 'faixa-azul',
+                    corHex: '#106BE6',
+                    imagemUrl: 'img/banner/ex3.jpg',
+                    link: '#'
+                },
+                {
+                    id: 'secao-4',
+                    titulo: "BANCO DE TALENTOS",
+                    texto: "É uma plataforma que conecta profissionais e estudantes das áreas de Engenharia, Agronomia e Geociências a oportunidades de trabalho, estágios e desenvolvimento profissional.",
+                    corClasse: 'faixa-verde',
+                    corHex: '#10a37f',
+                    imagemUrl: 'img/banner/ex4.jpg',
+                    link: '#'
+                },
+                {
+                    id: 'secao-5',
+                    titulo: "CLUBE DE VANTAGENS",
+                    texto: "Uma iniciativa que visa oferecer benefícios exclusivos aos profissionais registrados no Conselho, promovendo economia e valorização profissional.",
+                    corClasse: 'faixa-roxa',
+                    corHex: '#8A10E6',
+                    imagemUrl: 'img/banner/ex5.jpg',
+                    link: '#'
+                }
+            ];
+
+            // --- REFERÊNCIAS AOS ELEMENTOS DO DOM ---
+            const faixaLateral = document.getElementById('faixa-lateral');
+            const conteudoTexto = document.getElementById('conteudo-texto');
+            const tituloSecao = document.getElementById('titulo-secao');
+            const textoSecao = document.getElementById('texto-secao');
+            const imagemFundo = document.getElementById('imagem-fundo');
+            const navBullets = document.getElementById('nav-bullets');
+            const secoesScroll = document.querySelectorAll('#secoes-scroll section');
+            const saibaMaisBtn = document.getElementById('saiba-mais-btn');
+
+            // --- GERAÇÃO DOS BULLETS DE NAVEGAÇÃO ---
+            dadosDasSecoes.forEach((secao, index) => {
+                const bullet = document.createElement('a');
+                bullet.href = `#${secao.id}`;
+                bullet.dataset.index = index;
+                bullet.classList.add('w-3', 'h-3', 'rounded-full', 'border-2', 'border-white', 'block', 'transition-all', 'duration-300');
+                
+                bullet.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById(secao.id).scrollIntoView({ behavior: 'smooth' });
+                });
+
+                navBullets.appendChild(bullet);
+            });
+            const bullets = navBullets.querySelectorAll('a');
+
+            // --- FUNÇÃO PARA ATUALIZAR O CONTEÚDO VISUAL ---
+            let ultimaCorClasse = '';
+            let indiceAtivo = -1; 
+
+            function atualizarConteudo(index) {
+                if (index === indiceAtivo) {
+                    return;
+                }
+                indiceAtivo = index;
+
+                const dados = dadosDasSecoes[index];
+                if (!dados) return;
+
+                conteudoTexto.classList.add('texto-fade-out');
+                conteudoTexto.classList.remove('texto-fade-in');
+
+                setTimeout(() => {
+                    tituloSecao.textContent = dados.titulo;
+                    textoSecao.textContent = dados.texto;
+
+                    if (ultimaCorClasse) {
+                        faixaLateral.classList.remove(ultimaCorClasse);
+                    }
+                    faixaLateral.classList.add(dados.corClasse);
+                    ultimaCorClasse = dados.corClasse;
+
+                    // Atualiza a cor do texto e o link do botão
+                    saibaMaisBtn.style.color = dados.corHex;
+                    saibaMaisBtn.href = dados.link;
+
+                    imagemFundo.style.backgroundImage = `url('${dados.imagemUrl}')`;
+                    
+                    conteudoTexto.classList.remove('texto-fade-out');
+                    conteudoTexto.classList.add('texto-fade-in');
+
+                }, 350);
+
+                bullets.forEach((b, i) => {
+                    b.classList.toggle('bullet-ativo', i === index);
+                });
+            }
+
+            // --- INTERSECTION OBSERVER ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '-25% 0px -25% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const secaoId = entry.target.id;
+                        const index = dadosDasSecoes.findIndex(s => s.id === secaoId);
+                        atualizarConteudo(index);
+                    }
+                });
+            }, observerOptions);
+
+            secoesScroll.forEach(secao => {
+                observer.observe(secao);
+            });
+
+            // --- INICIALIZAÇÃO ---
+            atualizarConteudo(0);
+        });
+    </script>
+
+</body>
+</html>
