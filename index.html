@@ -28,10 +28,10 @@
         }
 
         /* --- Estilos do Banner Vertical --- */
-        .faixa-rosa { --tw-bg-opacity: 1; background-color: rgba(230, 23, 93, var(--tw-bg-opacity)); }
+        .azul-medio{ --tw-bg-opacity: 1; background-color: rgba(38, 79, 150, var(--tw-bg-opacity)); }
+        .azul-claro { --tw-bg-opacity: 1; background-color: rgba(57, 168, 224, var(--tw-bg-opacity)); }
         .faixa-laranja { --tw-bg-opacity: 1; background-color: rgba(230, 69, 16, var(--tw-bg-opacity)); }
-        .faixa-azul { --tw-bg-opacity: 1; background-color: rgba(16, 107, 230, var(--tw-bg-opacity)); }
-        .faixa-verde { --tw-bg-opacity: 1; background-color: rgba(16, 163, 127, var(--tw-bg-opacity)); }
+        .azul-escuro { --tw-bg-opacity: 1; background-color: rgba(42, 46, 98, var(--tw-bg-opacity)); }
         .faixa-roxa { --tw-bg-opacity: 1; background-color: rgba(138, 16, 230, var(--tw-bg-opacity)); }
 
         /* Transições suaves para a troca de cor e opacidade no banner */
@@ -86,11 +86,13 @@
     <!-- Seção 1: Capa Principal -->
     <section id="home" class="h-screen w-full flex flex-col relative overflow-hidden">
         
-        <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
+        <div class="absolute inset-0 opacity-80 z-0" style="background-color: #2A2E62;"></div>
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-zinc-900 via-transparent to-zinc-900 z-0"></div>
 
         <header class="w-full p-6 md:px-12 md:py-8 flex justify-between items-center absolute top-0 z-20">
-            <div class="text-2xl font-bold tracking-wider"><img src="img/componentes/logo-superior-crea-lab-mg.png" width="200rem"></div>
+            <div class="text-2xl font-bold tracking-wider text-crea-blue">
+                <a href="index.html"><img src="img/componentes/logo-principal-crea-lab-mg.png" width="100rem"></a>
+            </div>
             <nav class="hidden md:flex">
                 <ul class="flex items-center space-x-8 text-sm font-medium">
                     <li><a href="o-crea-lab.html" class="hover:text-purple-300 transition-colors duration-300">O CreaLab</a></li>
@@ -113,7 +115,7 @@
 
         <main class="flex-grow flex items-center justify-center z-10">
             <div class="text-center select-none">
-                <img src="img/componentes/logo-principal-crea-lab-mg.png" width="700rem" class="logo-glow">
+                <img src="img/componentes/logo-principal-crea-lab-mg.png" width="500rem">
             </div>
         </main>
 
@@ -124,9 +126,13 @@
             </a>
         </footer>
     </section>
-
     <!-- Seção 2: Placeholder do Vídeo -->
-    <section id="video-section" class="h-screen w-full bg-gradient-to-br from-[#2361D8] to-[#E4234F] flex items-center justify-center p-4 sm:p-8">
+    <section id="video-section" 
+         class="h-screen w-full flex items-center justify-center p-4 sm:p-8"
+         style="background-image: url('img/banner/video-bg.png'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;">
         <div class="w-full max-w-5xl aspect-video bg-black rounded-xl shadow-2xl flex items-center justify-center relative">
             <div class="absolute top-8 left-8 sm:top-12 sm:left-12">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white leading-none">
@@ -181,8 +187,8 @@
                 <div class="w-full md:w-1/2 lg:w-1/3">
                     <!-- Placeholder do Logo -->
                     <div class="text-4xl font-bold text-crea-blue"><a href="index.html"><img
-                            src="img/componentes/logo-superior-crea-lab-mg-azul-padrao.png" width="200rem"></a></div>
-                    <hr class="my-4 border-t-2 border-indigo-200 w-32">
+                            src="img/componentes/logo-superior-crea-lab-mg.png" width="150rem"></a></div>
+                    <hr class="my-4 border-t-2 border-indigo-200 w-48">
                     <!-- Ícones de Redes Sociais -->
                     <div class="flex space-x-4 text-crea-blue">
                         <a href="https://www.facebook.com/people/Crea-MG/100063772080022/#" class="hover:text-crea-blue-light transition-colors"  target="_blank"><svg class="w-6 h-6"
@@ -292,27 +298,45 @@
                     id: 'secao-1',
                     titulo: "ESPAÇOS DE COWORKINGS",
                     texto: "Visa criar uma infraestrutura colaborativa e inovadora, por meio de uma rede de coworkings, com o objetivo de modernizar os processos institucionais e integrar de forma mais eficiente as inspetorias do Crea-MG.",
-                    corClasse: 'faixa-rosa',
-                    corHex: '#E6175D',
+                    corClasse: 'azul-medio',
+                    corHex: '#264F96',
                     imagemUrl: 'img/banner/coworking-banner1.png',
                     link: '#'
                 },
                 {
+                    id: 'secao-2',
+                    titulo: "FERRAMENTAS DIGITAIS",
+                    texto: "Visa estabelecer parcerias entre o CREA MG e empresas desenvolvedoras de softwares de mercado relevantes para os profissionais registrados no conselho.",
+                    corClasse: 'azul-escuro',
+                    corHex: '#2A2E62',
+                    imagemUrl: 'img/banner/ferramentas-digitais-banner1.png',
+                    link: '#'
+                },
+                {
                     id: 'secao-3',
-                    titulo: "PLATAFORMA DE CAPACITAÇÃO",
-                    texto: "A plataforma de capacitação do Crea-MG oferecerá cursos online, gratuitos e de curta duração em diversas áreas do conhecimento, promovendo o desenvolvimento profissional, a valorização das profissões do Sistema Confea/Crea e o fortalecimento da atuação ética e fiscalizatória.",
-                    corClasse: 'faixa-azul',
-                    corHex: '#106BE6',
+                    titulo: "CAPACITA-MG ",
+                    texto: "Formação que transforma. Conhecimento que impulsiona. Carreiras que impactam Minas.",
+                    corClasse: 'azul-claro',
+                    corHex: '#39A8E0',
                     imagemUrl: 'img/banner/plataforma-capacitacao-banner1.png',
                     link: '#'
                 },
                 {
                     id: 'secao-4',
                     titulo: "BANCO DE TALENTOS",
-                    texto: "É uma plataforma que conecta profissionais e estudantes das áreas de Engenharia, Agronomia e Geociências a oportunidades de trabalho, estágios e desenvolvimento profissional.",
-                    corClasse: 'faixa-verde',
-                    corHex: '#10a37f',
+                    texto: "Uma solução moderna e estratégica para quem busca ou oferece oportunidades no mercado técnico e industrial.",
+                    corClasse: 'azul-escuro',
+                    corHex: '#2A2E62',
                     imagemUrl: 'img/banner/banco-de-talentos-banner1.png',
+                    link: '#'
+                },
+                {
+                    id: 'secao-5',
+                    titulo: "CLUBE DE VANTAGENS",
+                    texto: "É uma iniciativa que visa oferecer benefícios exclusivos aos profissionais registrados no Conselho, promovendo economia e valorização profissional.",
+                    corClasse: 'azul-medio',
+                    corHex: '#264F96',
+                    imagemUrl: 'img/banner/clube-vantagens-banner1.png',
                     link: '#'
                 }
             ];
