@@ -32,15 +32,15 @@
          * variação '-bg' mais clara para fundos.
          */
       :root {
-        /* Paleta Principal (Azuis) */
-        --theme-primary-dark: #023059;
-        --theme-primary-dark-bg: #e6eaf0;
-        --theme-primary-main: #204482;
-        --theme-primary-main-bg: #e8ebf2;
-        --theme-primary-bright: #2361d8;
-        --theme-primary-bright-bg: #e9effc;
-        --theme-primary-alt: #00509b;
-        --theme-primary-alt-bg: #e6eef5;
+       /* Paleta Principal (Azuis) */
+            --theme-primary-dark: #023059;
+            --theme-primary-dark-bg: #E6EAF0;
+            --theme-primary-main: #204482;
+            --theme-primary-main-bg: #E8EBF2;
+            --theme-primary-bright: #2361D8;
+            --theme-primary-bright-bg: #E9EFFC;
+            --theme-primary-alt: #00509b;
+            --theme-primary-alt-bg: #E5F4FF;
 
         /* Paleta Secundária (Vermelhos/Laranjas) */
         --theme-secondary-orange: #e14d27;
@@ -101,13 +101,13 @@
       }
 
       /* Classes de Utilitário para o Tema Rosa (Legado e Corrigido) */
-      .bg-theme-pink-light {
-        background-color: var(--theme-pink-bg);
+      .bg-theme-primary-alt-bg {
+        background-color: var(--theme-primary-alt-bg);
       }
 
-      .text-theme-pink {
+      .text-theme-blue {
         /* REGRA ADICIONADA */
-        color: var(--theme-pink);
+        color: var(--theme-primary-bright);
       }
 
       .text-crea-blue-bright {
@@ -177,8 +177,8 @@
         <div class="text-2xl font-bold tracking-wider text-crea-blue">
           <a href="index.html"
             ><img
-              src="img/componentes/logo-superior-crea-lab-mg-azul-padrao.png"
-              width="200rem"
+              src="img/componentes/logo-superior-crea-lab-mg.png"
+              width="100rem"
           /></a>
         </div>
 
@@ -289,7 +289,7 @@
             <p class="text-theme-primary-main leading-relaxed mb-2">
               <!-- CLASSE CORRIGIDA -->
               O Crea-MG disponibiliza
-              <strong class="text-theme-pink"
+              <strong class="text-theme-blue"
                 >salas, auditórios e estações de trabalho</strong
               >
               para os profissionais regularmente registrados e adimplentes no
@@ -302,7 +302,7 @@
               Os espaços são uma iniciativa do Crea-MG com o objetivo de
               modernizar os processos institucionais e integrar de forma mais
               eficiente as inspetorias,
-              <strong class="text-theme-pink"
+              <strong class="text-theme-blue"
                 >facilitando o acesso e promovendo mais praticidade</strong
               >
               no dia a dia.
@@ -321,7 +321,7 @@
     <!-- Seção: Conheça nossos espaços -->
     <section
       id="espacos"
-      class="w-full bg-theme-pink-light pb-16 sm:pb-24 pt-8 sm:pt-12"
+      class="w-full bg-theme-primary-alt-bg pb-16 sm:pb-24 pt-8 sm:pt-12"
     >
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Título da Seção -->
