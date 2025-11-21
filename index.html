@@ -303,7 +303,7 @@
                     corClasse: 'azul-medio',
                     corHex: '#264F96',
                     imagemUrl: 'img/banner/coworking-banner1.png',
-                    link: '#'
+                    src: 'coworkings.html'
                 },
                 {
                     id: 'secao-2',
@@ -312,7 +312,7 @@
                     corClasse: 'azul-escuro',
                     corHex: '#2A2E62',
                     imagemUrl: 'img/banner/ferramentas-digitais-banner1.png',
-                    link: '#'
+                    href: '#'
                 },
                 {
                     id: 'secao-3',
@@ -321,16 +321,16 @@
                     corClasse: 'azul-claro',
                     corHex: '#39A8E0',
                     imagemUrl: 'img/banner/plataforma-capacitacao-banner1.png',
-                    link: '#'
+                    href:"capacitacao.html"
                 },
                 {
                     id: 'secao-4',
                     titulo: "BANCO DE TALENTOS",
-                    texto: "Uma solução moderna e estratégica para quem busca ou oferece oportunidades no mercado técnico e industrial.",
+                    texto: "É uma plataforma que conecta profissionais e estudantes das áreas de Engenharia, Agronomia e Geociências a oportunidades de trabalho, estágios e desenvolvimento profissional.",
                     corClasse: 'azul-escuro',
                     corHex: '#2A2E62',
                     imagemUrl: 'img/banner/banco-de-talentos-banner1.png',
-                    link: '#'
+                    href: 'banco-de-talentos.html'
                 },
                 {
                     id: 'secao-5',
@@ -339,7 +339,7 @@
                     corClasse: 'azul-medio',
                     corHex: '#264F96',
                     imagemUrl: 'img/banner/clube-vantagens-banner1.png',
-                    link: '#'
+                    href: 'clube-de-vantagens.html'
                 }
             ];
 
@@ -390,7 +390,7 @@
                         ultimaCorClasse = dados.corClasse;
 
                         saibaMaisBtn.style.color = dados.corHex;
-                        saibaMaisBtn.href = dados.link;
+                        saibaMaisBtn.href = dados.src || dados.href || "#";
 
                         imagemFundo.style.backgroundImage = `url('${dados.imagemUrl}')`;
                         
