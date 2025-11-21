@@ -129,6 +129,7 @@
             </a>
         </footer>
     </section>
+    
     <!-- Seção 2: Placeholder do Vídeo -->
     <section id="video-section" 
          class="h-screen w-full flex items-center justify-center p-4 sm:p-8"
@@ -141,7 +142,7 @@
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white leading-none">
                     Sobre o<br>Crealab Minas
                 </h2>
-                <a href="#" class="inline-block mt-4 bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
+                <a href="o-crea-lab.html" class="inline-block mt-4 bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
                     Saiba mais &rarr;
                 </a>
             </div>
@@ -241,19 +242,18 @@
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                </path>
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <span>0800 031 2732</span>
+                            <a href="tel:08000312732" class="underline">0800 031 2732</a>
                         </li>
+
                         <li class="flex items-center">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span>atendimento@crea-mg.org.br</span>
+                            <a href="mailto:atendimento@crea-mg.org.br" class="underline">atendimento@crea-mg.org.br</a>
                         </li>
                     </ul>
                 </div>
@@ -304,7 +304,7 @@
                     corClasse: 'azul-medio',
                     corHex: '#264F96',
                     imagemUrl: 'img/banner/coworking-banner1.png',
-                    link: '#'
+                    src: 'coworkings.html'
                 },
                 {
                     id: 'secao-2',
@@ -313,7 +313,7 @@
                     corClasse: 'azul-escuro',
                     corHex: '#2A2E62',
                     imagemUrl: 'img/banner/ferramentas-digitais-banner1.png',
-                    link: '#'
+                    href: '#'
                 },
                 {
                     id: 'secao-3',
@@ -322,16 +322,16 @@
                     corClasse: 'azul-claro',
                     corHex: '#39A8E0',
                     imagemUrl: 'img/banner/plataforma-capacitacao-banner1.png',
-                    link: '#'
+                    href:"capacitacao.html"
                 },
                 {
                     id: 'secao-4',
                     titulo: "BANCO DE TALENTOS",
-                    texto: "Uma solução moderna e estratégica para quem busca ou oferece oportunidades no mercado técnico e industrial.",
+                    texto: "É uma plataforma que conecta profissionais e estudantes das áreas de Engenharia, Agronomia e Geociências a oportunidades de trabalho, estágios e desenvolvimento profissional.",
                     corClasse: 'azul-escuro',
                     corHex: '#2A2E62',
                     imagemUrl: 'img/banner/banco-de-talentos-banner1.png',
-                    link: '#'
+                    href: 'banco-de-talentos.html'
                 },
                 {
                     id: 'secao-5',
@@ -340,7 +340,7 @@
                     corClasse: 'azul-medio',
                     corHex: '#264F96',
                     imagemUrl: 'img/banner/clube-vantagens-banner1.png',
-                    link: '#'
+                    href: 'clube-de-vantagens.html'
                 }
             ];
 
@@ -391,7 +391,7 @@
                         ultimaCorClasse = dados.corClasse;
 
                         saibaMaisBtn.style.color = dados.corHex;
-                        saibaMaisBtn.href = dados.link;
+                        saibaMaisBtn.href = dados.src || dados.href || "#";
 
                         imagemFundo.style.backgroundImage = `url('${dados.imagemUrl}')`;
                         
