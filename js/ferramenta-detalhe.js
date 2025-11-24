@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observacoes = form.observacoes.value.trim();
   const beneficio = document.getElementById('modal-beneficio').textContent;
   const ferramentaNome = ferramentaAtual?.nome || '';
+  const ferramentaEmail = ferramentaAtual?.email || '';
 
   const templateParams = {
     beneficio,
@@ -139,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     telefone,
     observacoes,
     link_ferramenta: window.location.href, 
+    email_extra: ferramentaEmail,
   };
 
   emailjs

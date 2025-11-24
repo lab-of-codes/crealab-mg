@@ -5,6 +5,7 @@ window.FERRAMENTAS = [
   {
     slug: 'tahvago',
     nome: 'TahVago',
+    email: "comercial@tahvago.com.br",
     tipo: 'Produtos digitais',
     publicoAlvo: 'Empresas registradas',
     categoria: 'Produtos Digitais',
