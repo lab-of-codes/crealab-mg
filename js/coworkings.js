@@ -32,7 +32,7 @@ function mostrarToastEspacoBloqueado() {
   }, 3000);
 }
 
-function formatarTelefoneBrasil(telefoneBruto) {
+/* function formatarTelefoneBrasil(telefoneBruto) {
   if (!telefoneBruto) return '';
 
   const digits = telefoneBruto.replace(/\D/g, '');
@@ -69,7 +69,62 @@ function formatarTelefoneBrasil(telefoneBruto) {
 
 
   return telefoneBruto;
+} */
+
+
+function formatarTelefoneBrasil(telefoneBruto) {
+  if (!telefoneBruto) return '';
+
+  const digits = telefoneBruto.replace(/\D/g, '');
+
+  if (digits.startsWith('0800')) {
+   
+    if (digits.length === 11) {
+      const parte1 = digits.slice(0, 4); // 0800
+      const parte2 = digits.slice(4, 7); // xxx
+      const parte3 = digits.slice(7);    // xxxx
+      return `${parte1} ${parte2} ${parte3}`;
+    }
+
+   
+    return digits;
+  }
+
+  
+  if (digits.length === 11) {
+    const ddd = digits.slice(0, 2);
+    const parte1 = digits.slice(2, 7);
+    const parte2 = digits.slice(7);
+    return `(${ddd}) ${parte1}-${parte2}`;
+  }
+
+ 
+  if (digits.length === 10) {
+    const ddd = digits.slice(0, 2);
+    const parte1 = digits.slice(2, 6);
+    const parte2 = digits.slice(6);
+    return `(${ddd}) ${parte1}-${parte2}`;
+  }
+
+ 
+  if (digits.length === 9) {
+    const parte1 = digits.slice(0, 5);
+    const parte2 = digits.slice(5);
+    return `${parte1}-${parte2}`;
+  }
+
+  
+  if (digits.length === 8) {
+    const parte1 = digits.slice(0, 4);
+    const parte2 = digits.slice(4);
+    return `${parte1}-${parte2}`;
+  }
+
+  
+  return telefoneBruto;
 }
+
+
 
 
 function formatarEndereco(instalacao) {
