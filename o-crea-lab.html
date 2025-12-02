@@ -173,7 +173,7 @@
                     <li><a href="o-crea-lab.html" class="hover:text-purple-300 transition-colors duration-300">O CreaLab</a></li>
                     <li><a href="coworkings.html" class="hover:text-purple-300 transition-colors duration-300">Coworkings</a></li>
 <!--                     <li><a href="ferramentas-digitais.html" class="hover:text-purple-300 transition-colors duration-300">Ferramentas Digitais</a></li>
- -->                    <li><a href="capacitacao.html" class="hover:text-purple-300 transition-colors duration-300">Capacita MG</a></li>
+ -->                    <li><a href="capacitacao.html" class="hover:text-purple-300 transition-colors duration-300">Capacitação</a></li>
                     <li><a href="banco-de-talentos.html" class="hover:text-purple-300 transition-colors duration-300">Banco de Talentos</a></li>
                    <!--  <li><a href="clube-de-vantagens.html" class="hover:text-purple-300 transition-colors duration-300">Clube de vantagens</a></li> -->
                      <li><a href="beneficios.html" class="hover:text-purple-300 transition-colors duration-300">Benefícios</a></li>
@@ -199,7 +199,7 @@
        <!--  <a href="ferramentas-digitais.html" class="mobile-menu-link"
           >Ferramentas Digitais</a
         > -->
-        <a href="capacitacao.html" class="mobile-menu-link">Capacita MG</a>
+        <a href="capacitacao.html" class="mobile-menu-link">Capacitação</a>
         <a href="banco-de-talentos.html" class="mobile-menu-link"
           >Banco de Talentos</a
         >
@@ -229,9 +229,46 @@
         <!-- Seção 2: Placeholder do Vídeo -->
     <section id="video-section" class="w-full flex items-center justify-center p-1 sm:p-1">
         <div class="w-full max-w-5xl aspect-video bg-black rounded-xl shadow-2xl flex items-center justify-center relative">
-            <div class="text-center text-white">
-                <svg class="w-20 h-20 sm:w-24 sm:h-24 text-white/80 hover:text-white transition-colors cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
+           <div
+          class="w-full aspect-video bg-black rounded-xl shadow-2xl relative overflow-hidden"
+        >
+          <!-- Botão de play -->
+          <button
+            id="video-play"
+            type="button"
+            class="absolute inset-0 flex items-center justify-center text-white"
+          >
+            <svg
+              class="w-20 h-20 sm:w-24 sm:h-24 text-white/80 hover:text-white transition-colors cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Iframe do vídeo (começa escondido) -->
+          <iframe
+            id="video-iframe"
+            class="w-full h-full hidden"
+            src=""
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         </div>
     </section>
 
@@ -269,7 +306,7 @@
             <img src="img/about-crealab/about-crealab-4.svg"
                 alt="Placeholder de Imagem" class="w-full h-32 object-cover rounded-lg mb-4">
             <h4 class="text-xl font-bold text-crea-blue-bright mb-2">Otimização de processos, ferramentas e infraestrutura de TI</h4>
-            <p class="text-gray-600">Modernizar e integrar a gestão de TI, a partir da atualização de sistemas e infraestrutura para maior segurança, produtividade e sustentabilidade. Implantar soluções como o Office 365, gestão de chamados e o novo sistema "Core" e estruturar base de dados unificada e monitoramento de sistemas críticos.</p>
+            <p class="text-gray-600">Modernizar e integrar a gestão de TI por meio da atualização de sistemas e da infraestrutura tecnológica, garantindo mais segurança, produtividade e sustentabilidade. Implantar soluções corporativas para comunicação, colaboração e atendimento, além de estruturar uma base de dados unificada e aprimorar o monitoramento dos sistemas críticos do Conselho.</p>
         </div>
         <div class="bg-white rounded-lg	 p-4 shadow-md">
             <img src="img/about-crealab/about-crealab-5.svg"
@@ -299,7 +336,7 @@
             <img src="img/about-crealab/about-crealab-9.svg"
                 alt="Placeholder de Imagem" class="w-full h-32 object-cover rounded-lg mb-4">
             <h4 class="text-xl font-bold text-crea-blue-bright mb-2">Desenvolvimento e Qualidade de vida</h4>
-            <p class="text-gray-600">Promover a saúde física, mental e o bem-estar dos colaboradores e profissionais. Implantar programas de saúde, ergonomia, ginástica laboral, campanhas de vacinação, apoio psicossocial e incentivo a atividades físicas. Além de garantir condições adequadas de trabalho, equilíbrio entre vida profissional e pessoal e oportunidades de desenvolvimento.</p>
+            <p class="text-gray-600">Promover a saúde e o bem-estar dos colaboradores e profissionais, fortalecendo ações que estimulam hábitos saudáveis, qualidade de vida e condições adequadas de trabalho. Implantar iniciativas de apoio à saúde, programas de benefícios e soluções que contribuam para o equilíbrio entre vida pessoal e profissional, valorização e desenvolvimento contínuo.</p>
         </div>
        <!--  <div class="bg-white rounded-lg	 p-4 shadow-md">
             <img src="https://placehold.co/400x200/D1D5DB/4B5563?text=Placeholder"
@@ -436,6 +473,19 @@
                     toTopButton.classList.add('hidden');
                 }
             });
+            // --- Vídeo da seção "Sobre o CreaLab" ---
+      const playButton = document.getElementById("video-play");
+      const videoIframe = document.getElementById("video-iframe");
+
+      if (playButton && videoIframe) {
+        playButton.addEventListener("click", () => {
+          videoIframe.src =
+            "https://drive.google.com/file/d/1Vcc8WMrmYUefJB-gDwhs5_0SaUakSwn1/preview";
+
+          playButton.classList.add("hidden");
+          videoIframe.classList.remove("hidden");
+        });
+      }
     </script>
 
 </body>

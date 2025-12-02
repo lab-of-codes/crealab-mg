@@ -156,7 +156,7 @@
               <a
                 href="capacitacao.html"
                 class="hover:text-purple-300 transition-colors duration-300"
-                >Capacita MG</a
+                >Capacitação</a
               >
             </li>
             <li>
@@ -209,7 +209,7 @@
         <!-- <a href="ferramentas-digitais.html" class="mobile-menu-link"
           >Ferramentas Digitais</a
         > -->
-        <a href="capacitacao.html" class="mobile-menu-link">Capacita MG</a>
+        <a href="capacitacao.html" class="mobile-menu-link">Capacitação</a>
         <a href="banco-de-talentos.html" class="mobile-menu-link"
           >Banco de Talentos</a
         >
@@ -280,7 +280,7 @@
         </div>
 
         <!-- CAIXA DO VÍDEO -->
-        <div
+        <!-- <div
           class="w-full aspect-video bg-black rounded-xl shadow-2xl flex items-center justify-center"
         >
           <div class="text-center text-white">
@@ -305,6 +305,47 @@
               ></path>
             </svg>
           </div>
+        </div> -->
+        <!-- CAIXA DO VÍDEO -->
+        <div
+          class="w-full aspect-video bg-black rounded-xl shadow-2xl relative overflow-hidden"
+        >
+          <!-- Botão de play -->
+          <button
+            id="video-play"
+            type="button"
+            class="absolute inset-0 flex items-center justify-center text-white"
+          >
+            <svg
+              class="w-20 h-20 sm:w-24 sm:h-24 text-white/80 hover:text-white transition-colors cursor-pointer"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Iframe do vídeo (começa escondido) -->
+          <iframe
+            id="video-iframe"
+            class="w-full h-full hidden"
+            src=""
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
@@ -612,7 +653,7 @@
 
           {
             id: "secao-3",
-            titulo: "CAPACITA MG ",
+            titulo: "Capacitação ",
             texto:
               "A plataforma de capacitação do Crea-MG oferecerá cursos online, gratuitos e de curta duração em diversas áreas do conhecimento, promovendo o desenvolvimento profissional, a valorização das profissões do Sistema Confea/Crea e o fortalecimento da atuação ética e fiscalizatória.",
             corClasse: "branco-claro",
@@ -780,6 +821,19 @@
           bulletObserver.observe(bannerSection);
         }
       });
+      // --- Vídeo da seção "Sobre o CreaLab" ---
+      const playButton = document.getElementById("video-play");
+      const videoIframe = document.getElementById("video-iframe");
+
+      if (playButton && videoIframe) {
+        playButton.addEventListener("click", () => {
+          videoIframe.src =
+            "https://drive.google.com/file/d/1Vcc8WMrmYUefJB-gDwhs5_0SaUakSwn1/preview";
+
+          playButton.classList.add("hidden");
+          videoIframe.classList.remove("hidden");
+        });
+      }
     </script>
   </body>
 </html>
