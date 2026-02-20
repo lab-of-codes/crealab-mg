@@ -2,6 +2,13 @@
 
 let toastTimeoutId = null;
 
+const TAHVAGO_APP_URL = 'https://app.tahvago.com.br';
+
+function getReservarUrl(instalacaoId) {
+  if (!instalacaoId) return '#';
+  return `${TAHVAGO_APP_URL}/reserves-management?id=${encodeURIComponent(instalacaoId)}`;
+}
+
 function mostrarToastEspacoBloqueado() {
   const wrapper = document.getElementById('toast-espaco-bloqueado');
   const inner = document.getElementById('toast-espaco-bloqueado-inner');
@@ -158,6 +165,8 @@ function criarCardInstalacao(instalacao) {
   const endereco = formatarEndereco(instalacao) || 'Endereço não informado';
   const imagem =
     instalacao?.capa || instalacao?.logo || 'https://placehold.co/400x300/EAEAEA/333333?text=Espa%C3%A7o';
+  const instalacaoId = instalacao?.id;
+  const reservarUrl = getReservarUrl(instalacaoId);
 
   card.innerHTML = `
     <img src="${imagem}" alt="Imagem do ${nome}"
@@ -198,20 +207,28 @@ function criarCardInstalacao(instalacao) {
     }
         </ul>
         <a
-            href="#"
-            data-toast-reservar="true"
+            href="${reservarUrl}"
+            data-reservar-id="${instalacaoId ?? ''}"
             class="mt-auto text-center w-full border-2 border-theme-pink text-theme-blue font-bold py-2 px-4 rounded-full hover:underline"
         >
-            Reservar &rarr;
+            Reservar  &rarr;
         </a>
     </div>
   `;
 
-  const link = card.querySelector('a');
+  const link = card.querySelector('a[data-reservar-id]');
   if (link) {
     link.addEventListener('click', (event) => {
+      const id = link.getAttribute('data-reservar-id');
+
+      if (!id) {
+        event.preventDefault();
+        mostrarToastEspacoBloqueado();
+        return;
+      }
+
       event.preventDefault();
-      mostrarToastEspacoBloqueado();
+      window.location.href = getReservarUrl(id);
     });
   }
 
